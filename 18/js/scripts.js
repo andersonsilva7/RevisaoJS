@@ -1,4 +1,4 @@
-var x = 0;
+var x = 1;
 
 while(x <= 5) {
 
@@ -20,10 +20,10 @@ while(y <= 3) {
 
 }
 
-var palavra = "Matheus";
+var palavra = "Anderson";
 var i = 0;
 
-while(i <= 6) {
+while(i <= 7) {
 
   console.log(palavra[i]);
 
