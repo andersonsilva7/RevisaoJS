@@ -14,22 +14,22 @@
 <body>
   <script>
       var name = window.prompt('Qual é o seu nome?')
-      document.write(`Olá, <strong>${name}</strong> ! Seu nome tem ${name.length} letras.<br/>`)
-      document.write(`Seu nome em Maiúsculas é ${name.toUpperCase()}`)
-      document.write(`Seu nome em minúsculas é ${name.toLowerCase()}`)
+      document.write(`Olá, <strong>${name}</strong> ! Seu nome tem ${name.length} letra(s).<br/>`)
+      document.write(`Seu nome em letra Maiúscula é  ${name.toUpperCase()}<br/>`)
+      document.write(`Seu nome em letra minúscula é ${name.toLowerCase()}`)
 
       var n1= 1545.5
       console.log(n1)
-      n1.toFixed(2)
-      console.log(n1)
-      n1.toFixed(2).replace('.',',')
-      console.log(n1)
-      n1.toLocaleString('pt-br', {style: 'currency', currency:'BRL'})
-      console.log(n1)
-      n1.toLocaleString('pt-br', {style: 'currency', currency:'USD'})
-      console.log(n1)
-      n1.toLocaleString('pt-br', {style: 'currency', currency:'EUR'})
-      console.log(n1)
+      
+      console.log(n1.toFixed(2))
+      
+      console.log(n1.toFixed(2).replace('.',','))
+      
+      console.log(n1.toLocaleString('pt-br', {style: 'currency', currency:'BRL'}))
+      
+      console.log(n1.toLocaleString('pt-br', {style: 'currency', currency:'USD'}))
+      
+      console.log(n1.toLocaleString('pt-br', {style: 'currency', currency:'EUR'}))
   </script>
 </body>
 </html>
