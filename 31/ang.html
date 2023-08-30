@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formas Geométricas</title>
+</head>
+<body>
+<h1>Determinar Forma Geométrica</h1>
+<p>Introduza os ângulos internos:</p>
+<div>
+  <label for="numLados">Número de Lados:</label>
+  <input type="number" id="numLados" min="3" max="8">
+</div>
+<div id="angulosContainer">
+</div>
+<button onclick="determinarForma()">Determinar Forma</button>
+<p id="resultado"></p>
+
+<script>
+function determinarForma() {
+    const numLados = parseInt(document.getElementById("numLados").value);
+    const angulos = [];
+
+    for (let i = 0; i < numLados; i++) {
+        const angulo = parseFloat(prompt(`Digite o ângulo ${i + 1} em graus:`));
+        angulos.push(angulo);
+    }
+
+    const forma = determinarFormaGeometrica(angulos);
+    document.getElementById("resultado").textContent = `A forma geométrica é: ${forma}`;
+}
+
+function determinarFormaGeometrica(angulos) {
+    const numLados = angulos.length;
+    const somaAngulos = calcularSomaAngulos(angulos);
+
+    if (numLados === 3 && somaAngulos === 180) {
+        return "Triângulo";
+    } else if (numLados === 4 && somaAngulos === 360) {
+        if (verificarQuadrado(angulos)) {
+            return "Quadrado";
+        } else if (verificarRetangulo(angulos)) {
+            return "Retângulo";
+        } else {
+            return "Quadrilátero";
+        }
+    } else if (numLados === 5 && somaAngulos === 540) {
+        return "Pentágono";
+    } else if (numLados === 6 && somaAngulos === 720) {
+        return "Hexágono";
+    } else if (numLados === 8 && somaAngulos === 1080) {
+        return "Octógono";
+    } else {
+        return "Forma não reconhecida";
+    }
+}
+
+function calcularSomaAngulos(angulos) {
+    let soma = 0;
+    for (const angulo of angulos) {
+        soma += angulo;
+    }
+    return soma;
+}
+
+function verificarQuadrado(angulos) {
+    return angulos.every(angulo => angulo === 90);
+}
+
+function verificarRetangulo(angulos) {
+    return angulos[0] === angulos[2] && angulos[1] === angulos[3];
+}
+</script>
+</body>
+</html>
